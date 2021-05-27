@@ -12,6 +12,18 @@ services:
       - ./node:/usr/src/app
     ports:
       - '9090:9090'
+  
+  # golang
+  golang:
+    container_name: golang
+    build:
+      context: .
+      dockerfile: ./docker/golang/Dockerfile
+    ports:
+      - '8080:8080'
+    tty: true
+    volumes:
+      - ./golang:/go/src/app
 
   # MySQL
   mysql:
